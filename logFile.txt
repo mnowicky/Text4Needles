@@ -1,0 +1,220 @@
+2019-01-30 15:43:11 [ERROR]:	Error receiving messages, could not connect to SMEagle. Traceback (most recent call last):
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Program Files\Python36\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Program Files\Python36\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Program Files\Python36\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Program Files\Python36\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\Program Files\Python36\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000000B136455E48>: Failed to establish a new connection: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python36\lib\site-packages\requests\adapters.py", line 440, in send
+    timeout=timeout
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='smeagle', port=80): Max retries exceeded with url: /index.php/jsonrpc/sms (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000000B136455E48>: Failed to establish a new connection: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\InHouseSoftware\Text4Needles\Receiver.py", line 80, in receiveMessages
+    response=requests.post(self.webAddr,data=allData)
+  File "C:\Program Files\Python36\lib\site-packages\requests\api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Program Files\Python36\lib\site-packages\requests\api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Program Files\Python36\lib\site-packages\requests\sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Program Files\Python36\lib\site-packages\requests\sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Program Files\Python36\lib\site-packages\requests\adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='smeagle', port=80): Max retries exceeded with url: /index.php/jsonrpc/sms (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000000B136455E48>: Failed to establish a new connection: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond',))
+
+2019-01-30 15:43:11 [ERROR]:	An unexpected error occurred in sender, halting: Traceback (most recent call last):
+  File "C:\InHouseSoftware\Text4Needles\Receiver.py", line 66, in run
+    messages=self.receiveMessages()
+  File "C:\InHouseSoftware\Text4Needles\Receiver.py", line 85, in receiveMessages
+    parsedJson=json.loads(response.text)
+UnboundLocalError: local variable 'response' referenced before assignment
+
+2019-01-30 15:43:12 [ERROR]:	Error receiving messages, could not connect to SMEagle. Traceback (most recent call last):
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Program Files\Python36\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Program Files\Python36\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Program Files\Python36\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Program Files\Python36\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\Program Files\Python36\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000003A1712D4E0>: Failed to establish a new connection: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python36\lib\site-packages\requests\adapters.py", line 440, in send
+    timeout=timeout
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='smeagle', port=80): Max retries exceeded with url: /index.php/jsonrpc/sms (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000003A1712D4E0>: Failed to establish a new connection: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\InHouseSoftware\Text4Needles\Receiver.py", line 80, in receiveMessages
+    response=requests.post(self.webAddr,data=allData)
+  File "C:\Program Files\Python36\lib\site-packages\requests\api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Program Files\Python36\lib\site-packages\requests\api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Program Files\Python36\lib\site-packages\requests\sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Program Files\Python36\lib\site-packages\requests\sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Program Files\Python36\lib\site-packages\requests\adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='smeagle', port=80): Max retries exceeded with url: /index.php/jsonrpc/sms (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000003A1712D4E0>: Failed to establish a new connection: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond',))
+
+2019-01-30 15:43:12 [ERROR]:	An unexpected error occurred in sender, halting: Traceback (most recent call last):
+  File "C:\InHouseSoftware\Text4Needles\Receiver.py", line 66, in run
+    messages=self.receiveMessages()
+  File "C:\InHouseSoftware\Text4Needles\Receiver.py", line 85, in receiveMessages
+    parsedJson=json.loads(response.text)
+UnboundLocalError: local variable 'response' referenced before assignment
+
+2019-01-30 16:13:43 [ERROR]:	Could not connect specified database.
+2019-01-30 16:13:43 [ERROR]:	Could not connect specified database.
+2019-02-05 15:48:11 [INFO]:	Sending message 39 to 7168604563
+2019-02-05 15:48:11 [INFO]:	Message sent. out:39, sms:456
+2019-02-05 15:49:12 [INFO]:	Sending message 40 to 7168604563
+2019-02-05 15:49:12 [INFO]:	Message sent. out:40, sms:458
+2019-02-05 15:50:23 [INFO]:	Sending message 41 to 7168604563
+2019-02-05 15:50:23 [INFO]:	Message sent. out:41, sms:460
+2019-10-16 15:43:28 [SYSTEM]:	Program started.
+2019-10-16 15:44:36 [INFO]:	Sending message 44 to 5857396811
+2019-10-16 15:44:37 [INFO]:	Message sent. out:44, sms:384
+2019-10-16 15:48:08 [SYSTEM]:	Program started.
+2019-10-16 15:49:40 [ERROR]:	Can't send message 45, must have a body.
+2019-10-16 15:50:09 [INFO]:	Sending message 46 to 5857396811
+2019-10-16 15:50:09 [INFO]:	Message sent. out:46, sms:385
+2019-10-16 16:30:37 [INFO]:	Sending message 47 to 7322819511
+2019-10-16 16:30:37 [INFO]:	Message sent. out:47, sms:386
+2019-10-16 16:34:06 [ERROR]:	Error receiving messages, could not connect to SMEagle. Traceback (most recent call last):
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Program Files\Python36\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Program Files\Python36\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Program Files\Python36\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Program Files\Python36\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "C:\Program Files\Python36\lib\http\client.py", line 964, in send
+    self.connect()
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000000D6404FBF98>: Failed to establish a new connection: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python36\lib\site-packages\requests\adapters.py", line 440, in send
+    timeout=timeout
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\Program Files\Python36\lib\site-packages\urllib3\util\retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='smeagle', port=80): Max retries exceeded with url: /index.php/jsonrpc/sms (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000000D6404FBF98>: Failed to establish a new connection: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\InHouseSoftware\Text4Needles\Receiver.py", line 80, in receiveMessages
+    response=requests.post(self.webAddr,data=allData)
+  File "C:\Program Files\Python36\lib\site-packages\requests\api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Program Files\Python36\lib\site-packages\requests\api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Program Files\Python36\lib\site-packages\requests\sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Program Files\Python36\lib\site-packages\requests\sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Program Files\Python36\lib\site-packages\requests\adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='smeagle', port=80): Max retries exceeded with url: /index.php/jsonrpc/sms (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000000D6404FBF98>: Failed to establish a new connection: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond',))
+
+2019-10-16 16:34:06 [ERROR]:	An unexpected error occurred in sender, halting: Traceback (most recent call last):
+  File "C:\InHouseSoftware\Text4Needles\Receiver.py", line 66, in run
+    messages=self.receiveMessages()
+  File "C:\InHouseSoftware\Text4Needles\Receiver.py", line 85, in receiveMessages
+    parsedJson=json.loads(response.text)
+UnboundLocalError: local variable 'response' referenced before assignment
+
+2019-10-16 16:37:55 [INFO]:	Sending message 48 to 5857396811
+2019-10-16 16:37:55 [INFO]:	Message sent. out:48, sms:389
