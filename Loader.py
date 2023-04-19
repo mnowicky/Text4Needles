@@ -1,7 +1,6 @@
 '''
 Created on Dec 5, 2018
 
-@author: treusch
 '''
 import configparser
 import os
